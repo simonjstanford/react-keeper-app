@@ -10,7 +10,6 @@ function App() {
   
   function addNote(note) {
     if (note) {
-      note.id = notes.length;
       setNotes(prev => {
         let newNotes = [...prev, note];
         console.log(newNotes);
@@ -32,9 +31,9 @@ function App() {
     <div className="App">
       <Header />
       <CreateArea addNote={addNote}/>
-      {notes.map(x => (
-        <Note key={x.id}
-              id={x.id}
+      {notes.map((x, i) => (
+        <Note key={i}
+              id={i}
               title={x.title} 
               content={x.content}
               removeNote={removeNote}/>))}
